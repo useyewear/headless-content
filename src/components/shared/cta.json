@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_ctas",
+  "info": {
+    "displayName": "cta"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
