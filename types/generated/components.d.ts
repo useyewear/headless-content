@@ -1,34 +1,67 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedContent extends Struct.ComponentSchema {
-  collectionName: 'components_shared_contents';
+export interface SectionsDescription extends Struct.ComponentSchema {
+  collectionName: 'components_sections_descriptions';
   info: {
-    displayName: 'content';
+    displayName: 'description';
   };
   attributes: {
-    content: Schema.Attribute.Blocks;
+    body: Schema.Attribute.Blocks;
+    defaultExpanded: Schema.Attribute.Boolean;
+    source: Schema.Attribute.Enumeration<
+      ['product', 'cms', 'cmsWithProductFallback']
+    > &
+      Schema.Attribute.DefaultTo<'product'>;
   };
 }
 
-export interface SharedCta extends Struct.ComponentSchema {
-  collectionName: 'components_shared_ctas';
-  info: {
-    displayName: 'cta';
-  };
-  attributes: {
-    text: Schema.Attribute.Text;
-  };
-}
-
-export interface SharedHeroBanner extends Struct.ComponentSchema {
-  collectionName: 'components_shared_hero_banners';
+export interface SectionsHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hero_banners';
   info: {
     displayName: 'heroBanner';
   };
   attributes: {
-    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    disclaimer: Schema.Attribute.Text;
+    heightPx: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 900;
+          min: 120;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<380>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ImageUrl: Schema.Attribute.Text;
+    links: Schema.Attribute.Component<'shared.links', true>;
+    mobileHeightPx: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 900;
+          min: 120;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<350>;
+    mobileImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    mobileImageUrl: Schema.Attribute.Text;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedLinks extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'links';
+  };
+  attributes: {
+    action: Schema.Attribute.Enumeration<['openLenses', 'anchor', 'url']> &
+      Schema.Attribute.DefaultTo<'anchor'>;
+    href: Schema.Attribute.Text;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -67,28 +100,6 @@ export interface SharedRichText extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSectionHero extends Struct.ComponentSchema {
-  collectionName: 'components_shared_section_heroes';
-  info: {
-    displayName: 'section.hero';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface SharedSectionRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_section_rich_texts';
-  info: {
-    displayName: 'section.rich-text';
-  };
-  attributes: {
-    richText: Schema.Attribute.Blocks;
-  };
-}
-
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -119,14 +130,12 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.content': SharedContent;
-      'shared.cta': SharedCta;
-      'shared.hero-banner': SharedHeroBanner;
+      'sections.description': SectionsDescription;
+      'sections.hero-banner': SectionsHeroBanner;
+      'shared.links': SharedLinks;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
-      'shared.section-hero': SharedSectionHero;
-      'shared.section-rich-text': SharedSectionRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
     }

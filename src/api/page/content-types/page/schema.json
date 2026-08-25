@@ -19,11 +19,7 @@
     },
     "sections": {
       "type": "dynamiczone",
-      "components": [
-        "shared.hero-banner",
-        "shared.content",
-        "shared.cta"
-      ]
+      "components": []
     }
   }
 }

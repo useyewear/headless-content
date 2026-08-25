@@ -623,10 +623,39 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<
-      ['shared.hero-banner', 'shared.content', 'shared.cta']
-    >;
+    sections: Schema.Attribute.DynamicZone<[]>;
     slug: Schema.Attribute.UID;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPdpPagePdpPage extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_pages';
+  info: {
+    displayName: 'PDP Page';
+    pluralName: 'pdp-pages';
+    singularName: 'pdp-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-page.pdp-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1151,6 +1180,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::page.page': ApiPagePage;
+      'api::pdp-page.pdp-page': ApiPdpPagePdpPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

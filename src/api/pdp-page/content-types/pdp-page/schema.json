@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdp_pages",
+  "info": {
+    "singularName": "pdp-page",
+    "pluralName": "pdp-pages",
+    "displayName": "PDP Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "heroBanner": {
+      "type": "component",
+      "component": "sections.hero-banner",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "sections.description",
+      "repeatable": false
+    }
+  }
+}

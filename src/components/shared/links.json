@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "links"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "text"
+    },
+    "action": {
+      "type": "enumeration",
+      "default": "anchor",
+      "enum": [
+        "openLenses",
+        "anchor",
+        "url"
+      ]
+    }
+  },
+  "config": {}
+}

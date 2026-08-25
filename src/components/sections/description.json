@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_descriptions",
+  "info": {
+    "displayName": "description"
+  },
+  "options": {},
+  "attributes": {
+    "source": {
+      "type": "enumeration",
+      "default": "product",
+      "enum": [
+        "product",
+        "cms",
+        "cmsWithProductFallback"
+      ]
+    },
+    "body": {
+      "type": "blocks"
+    },
+    "defaultExpanded": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}
