@@ -14,11 +14,15 @@
         "cmsWithProductFallback"
       ]
     },
-    "body": {
-      "type": "blocks"
-    },
     "defaultExpanded": {
       "type": "boolean"
+    },
+    "body": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   },
   "config": {}

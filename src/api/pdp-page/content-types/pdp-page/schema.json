@@ -26,6 +26,16 @@
       "type": "component",
       "component": "sections.description",
       "repeatable": false
+    },
+    "layout": {
+      "type": "component",
+      "component": "configuration.layout",
+      "repeatable": false
+    },
+    "gallery": {
+      "type": "component",
+      "component": "shared.gallery",
+      "repeatable": false
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_galleries",
+  "info": {
+    "displayName": "gallery"
+  },
+  "options": {},
+  "attributes": {
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "product",
+        "cms",
+        "cmsWithProductFallback"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

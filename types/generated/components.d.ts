@@ -1,12 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ConfigurationLayout extends Struct.ComponentSchema {
+  collectionName: 'components_configuration_layouts';
+  info: {
+    displayName: 'layout';
+  };
+  attributes: {
+    hideGallery: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    hidePrice: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    hideRxHero: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    hideSpecs: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    hideVariantSelection: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsDescription extends Struct.ComponentSchema {
   collectionName: 'components_sections_descriptions';
   info: {
     displayName: 'description';
   };
   attributes: {
-    body: Schema.Attribute.Blocks;
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     defaultExpanded: Schema.Attribute.Boolean;
     source: Schema.Attribute.Enumeration<
       ['product', 'cms', 'cmsWithProductFallback']
@@ -49,6 +70,22 @@ export interface SectionsHeroBanner extends Struct.ComponentSchema {
     mobileImageUrl: Schema.Attribute.Text;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedGallery extends Struct.ComponentSchema {
+  collectionName: 'components_shared_galleries';
+  info: {
+    displayName: 'gallery';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    source: Schema.Attribute.Enumeration<
+      ['product', 'cms', 'cmsWithProductFallback']
+    >;
   };
 }
 
@@ -130,8 +167,10 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'configuration.layout': ConfigurationLayout;
       'sections.description': SectionsDescription;
       'sections.hero-banner': SectionsHeroBanner;
+      'shared.gallery': SharedGallery;
       'shared.links': SharedLinks;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

@@ -647,7 +647,9 @@ export interface ApiPdpPagePdpPage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
     heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
