@@ -23,7 +23,8 @@
       ]
     },
     "ImageUrl": {
-      "type": "text"
+      "type": "text",
+      "regex": "^$|^https://(([a-z0-9-]+\\.)*ezcontacts\\.com|do6sydhp1s299\\.cloudfront\\.net)/"
     },
     "mobileImage": {
       "type": "media",
@@ -36,7 +37,8 @@
       ]
     },
     "mobileImageUrl": {
-      "type": "text"
+      "type": "text",
+      "regex": "^$|^https://(([a-z0-9-]+\\.)*ezcontacts\\.com|do6sydhp1s299\\.cloudfront\\.net)/"
     },
     "links": {
       "type": "component",

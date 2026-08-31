@@ -9,7 +9,8 @@
       "type": "string"
     },
     "href": {
-      "type": "text"
+      "type": "text",
+      "regex": "^$|^(https://([a-z0-9-]+\\.)*ezcontacts\\.com(/|$)|https://do6sydhp1s299\\.cloudfront\\.net/|/(?![/\\\\])|#|mailto:|tel:)"
     },
     "action": {
       "type": "enumeration",
