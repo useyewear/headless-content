@@ -69,7 +69,7 @@ export interface SectionsHeroBanner extends Struct.ComponentSchema {
     >;
     mobileImageUrl: Schema.Attribute.Text;
     subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 

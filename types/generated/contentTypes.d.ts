@@ -632,6 +632,108 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPdpContactsPagePdpContactsPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_contacts_pages';
+  info: {
+    displayName: 'PDP Contacts Page';
+    pluralName: 'pdp-contacts-pages';
+    singularName: 'pdp-contacts-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-contacts-page.pdp-contacts-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPdpEyecarePagePdpEyecarePage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_eyecare_pages';
+  info: {
+    displayName: 'PDP Eyecare Page';
+    pluralName: 'pdp-eyecare-pages';
+    singularName: 'pdp-eyecare-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-eyecare-page.pdp-eyecare-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPdpEyeglassesPagePdpEyeglassesPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_eyeglasses_pages';
+  info: {
+    displayName: 'PDP Eyeglasses Page';
+    pluralName: 'pdp-eyeglasses-pages';
+    singularName: 'pdp-eyeglasses-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-eyeglasses-page.pdp-eyeglasses-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPdpPagePdpPage extends Struct.CollectionTypeSchema {
   collectionName: 'pdp_pages';
   info: {
@@ -654,6 +756,74 @@ export interface ApiPdpPagePdpPage extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pdp-page.pdp-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPdpReadersPagePdpReadersPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_readers_pages';
+  info: {
+    displayName: 'PDP Readers Page';
+    pluralName: 'pdp-readers-pages';
+    singularName: 'pdp-readers-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-readers-page.pdp-readers-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPdpSunglassesPagePdpSunglassesPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pdp_sunglasses_pages';
+  info: {
+    displayName: 'PDP Sunglasses Page';
+    pluralName: 'pdp-sunglasses-pages';
+    singularName: 'pdp-sunglasses-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Component<'sections.description', false>;
+    gallery: Schema.Attribute.Component<'shared.gallery', false>;
+    heroBanner: Schema.Attribute.Component<'sections.hero-banner', false>;
+    layout: Schema.Attribute.Component<'configuration.layout', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pdp-sunglasses-page.pdp-sunglasses-page'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1182,7 +1352,12 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::page.page': ApiPagePage;
+      'api::pdp-contacts-page.pdp-contacts-page': ApiPdpContactsPagePdpContactsPage;
+      'api::pdp-eyecare-page.pdp-eyecare-page': ApiPdpEyecarePagePdpEyecarePage;
+      'api::pdp-eyeglasses-page.pdp-eyeglasses-page': ApiPdpEyeglassesPagePdpEyeglassesPage;
       'api::pdp-page.pdp-page': ApiPdpPagePdpPage;
+      'api::pdp-readers-page.pdp-readers-page': ApiPdpReadersPagePdpReadersPage;
+      'api::pdp-sunglasses-page.pdp-sunglasses-page': ApiPdpSunglassesPagePdpSunglassesPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

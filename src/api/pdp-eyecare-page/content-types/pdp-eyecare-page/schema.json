@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdp_eyecare_pages",
+  "info": {
+    "singularName": "pdp-eyecare-page",
+    "pluralName": "pdp-eyecare-pages",
+    "displayName": "PDP Eyecare Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "heroBanner": {
+      "type": "component",
+      "component": "sections.hero-banner",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "sections.description",
+      "repeatable": false
+    },
+    "layout": {
+      "type": "component",
+      "component": "configuration.layout",
+      "repeatable": false
+    },
+    "gallery": {
+      "type": "component",
+      "component": "shared.gallery",
+      "repeatable": false
+    }
+  }
+}
