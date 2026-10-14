@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plp_pages",
+  "info": {
+    "singularName": "plp-page",
+    "pluralName": "plp-pages",
+    "displayName": "PLP Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "heading": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "heroMobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "heroImageUrl": {
+      "type": "text"
+    },
+    "heroImageMobileUrl": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

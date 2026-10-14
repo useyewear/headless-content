@@ -835,6 +835,43 @@ export interface ApiPdpSunglassesPagePdpSunglassesPage
   };
 }
 
+export interface ApiPlpPagePlpPage extends Struct.CollectionTypeSchema {
+  collectionName: 'plp_pages';
+  info: {
+    displayName: 'PLP Page';
+    pluralName: 'plp-pages';
+    singularName: 'plp-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.String;
+    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    heroImageMobileUrl: Schema.Attribute.Text;
+    heroImageUrl: Schema.Attribute.Text;
+    heroMobileImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::plp-page.plp-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1358,6 +1395,7 @@ declare module '@strapi/strapi' {
       'api::pdp-page.pdp-page': ApiPdpPagePdpPage;
       'api::pdp-readers-page.pdp-readers-page': ApiPdpReadersPagePdpReadersPage;
       'api::pdp-sunglasses-page.pdp-sunglasses-page': ApiPdpSunglassesPagePdpSunglassesPage;
+      'api::plp-page.plp-page': ApiPlpPagePlpPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
