@@ -573,6 +573,52 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCmsPageCmsPage extends Struct.CollectionTypeSchema {
+  collectionName: 'cms_pages';
+  info: {
+    description: "Free-form page at /<section>/<slug>. Leave the slug empty for the section's own page (/blog).";
+    displayName: 'CMS Page';
+    pluralName: 'cms-pages';
+    singularName: 'cms-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    footer: Schema.Attribute.Enumeration<['site', 'none']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'site'>;
+    header: Schema.Attribute.Enumeration<['site', 'none']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'site'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cms-page.cms-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    section: Schema.Attribute.Enumeration<['content', 'policies', 'blog']> &
+      Schema.Attribute.Required;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1387,6 +1433,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::cms-page.cms-page': ApiCmsPageCmsPage;
       'api::global.global': ApiGlobalGlobal;
       'api::page.page': ApiPagePage;
       'api::pdp-contacts-page.pdp-contacts-page': ApiPdpContactsPagePdpContactsPage;

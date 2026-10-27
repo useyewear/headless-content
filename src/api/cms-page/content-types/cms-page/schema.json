@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cms_pages",
+  "info": {
+    "singularName": "cms-page",
+    "pluralName": "cms-pages",
+    "displayName": "CMS Page",
+    "description": "Free-form page at /<section>/<slug>. Leave the slug empty for the section's own page (/blog)."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "section": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "content",
+        "policies",
+        "blog"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "regex": "^$|^[a-z0-9]+(-[a-z0-9]+)*(/[a-z0-9]+(-[a-z0-9]+)*)*$"
+    },
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "header": {
+      "type": "enumeration",
+      "required": true,
+      "default": "site",
+      "enum": [
+        "site",
+        "none"
+      ]
+    },
+    "footer": {
+      "type": "enumeration",
+      "required": true,
+      "default": "site",
+      "enum": [
+        "site",
+        "none"
+      ]
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
